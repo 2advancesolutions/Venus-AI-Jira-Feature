@@ -1,0 +1,242 @@
+/* Board styles */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Column styles */
+.column {
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.column__header {
+  padding: 1rem;
+  border-bottom: 2px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column__header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.column__count {
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.column__dropzone {
+  flex: 1;
+  padding: 1rem;
+  min-height: 200px;
+  transition: background-color 0.2s;
+}
+
+.column__dropzone--active {
+  background-color: #e7f0ff;
+}
+
+.column__empty {
+  color: #999;
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* Task Card styles */
+.task-card {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: grab;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.task-card--dragging {
+  cursor: grabbing;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: rotate(3deg);
+}
+
+.task-card__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-card__title-row h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.task-card__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.task-card__avatar--unassigned {
+  background: #ccc;
+  color: #666;
+}
+
+.task-card__description {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.task-card__footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.task-card__assignee {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* Form Panel styles */
+.panel {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel__header {
+  margin-bottom: 1.5rem;
+}
+
+.panel__header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.panel__header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form__field input,
+.form__field textarea,
+.form__field select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form__field input:focus,
+.form__field textarea:focus,
+.form__field select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form__field textarea {
+  resize: vertical;
+}
+
+.form__hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+.form__submit {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form__submit:hover {
+  background: #5568d3;
+}
+
+.form__submit:active {
+  transform: translateY(1px);
+}
+
+/* Responsive layout */
+@media (max-width: 1200px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+  
+  .column {
+    min-height: 300px;
+  }
+}
